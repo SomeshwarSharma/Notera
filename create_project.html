@@ -1,0 +1,354 @@
+<?php
+ include_once 'db_handler.php';
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Notera</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="sidebar\style6.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+
+<style>
+body{
+    background-image: linear-gradient(to bottom, #cae6f2, #d2e8f2, #daeaf2, #e2edf2, #e9eff2);
+}
+textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+.testbox {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: inherit;
+      padding: 20px;
+      }
+form {
+      width: 100%;
+      padding: 20px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 0 8px  #669999; 
+      }
+.banner {
+      position: relative;
+      height: 300px;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      }
+.banner::after {
+      content: "";
+      background-color: rgba(0, 0, 10, 0.2); 
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      }
+input, select, textarea {
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      }
+input {
+      width: calc(100% - 10px);
+      padding: 5px;
+      }
+input[type="date"] {
+      padding: 4px 5px;
+      }
+textarea {
+      width: calc(100% - 12px);
+      padding: 5px;
+      }
+.item:hover p, .item:hover i, .question:hover p, .question label:hover, input:hover::placeholder {
+      color:  #669999;
+      }
+.item input:hover, .item select:hover, .item textarea:hover {
+      border: 1px solid transparent;
+      box-shadow: 0 0 3px 0  #669999;
+      color: #669999;
+      }
+.item {
+      position: relative;
+      margin-left: auto;
+	  margin-right: auto;
+	  width : 50%;
+	  align : center;
+      }
+.item span {
+      color: red;
+      }
+.week {
+      display:flex;
+      justfiy-content:space-between;
+      }
+.colums {
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+      flex-wrap:wrap;
+      }
+.colums div {
+      width:48%;
+      }
+input[type="date"]::-webkit-inner-spin-button {
+      display: none;
+      }
+.item i, input[type="date"]::-webkit-calendar-picker-indicator {
+      position: relative;
+      font-size: 20px;
+      color:  #a3c2c2;
+      }
+.item i {
+      right: 1%;
+      top: 30px;
+      z-index: 1;
+      }
+input[type=radio], input[type=checkbox]  {
+      display: none;
+      }
+label.radio {
+      position: relative;
+      display: inline-block;
+      margin: 5px 20px 15px 0;
+      cursor: pointer;
+      }
+      .question span {
+      margin-left: 30px;
+      }
+      .question-answer label {
+      display: block;
+      }
+      label.radio:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      border: 2px solid #ccc;
+      }
+      input[type=radio]:checked + label:before, label.radio:hover:before {
+      border: 2px solid  #669999;
+      }
+      label.radio:after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 5px;
+      width: 8px;
+      height: 4px;
+      border: 3px solid  #669999;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      opacity: 0;
+      }
+      input[type=radio]:checked + label:after {
+      opacity: 1;
+      }
+      .flax {
+      display:flex;
+      justify-content:space-around;
+      }
+      .btn-block {
+      margin-top: 10px;
+      text-align: center;
+      }
+      button {
+      width: 150px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px; 
+      background:  #8a4c00;
+      font-size: 16px;
+      color: #fff;
+      cursor: pointer;
+      }
+      button:hover {
+      background:  #a3c2c2;
+      }
+      @media (min-width: 568px) {
+      .name-item, .city-item {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      }
+      .name-item input, .name-item div {
+      width: calc(50% - 20px);
+      }
+      .name-item div input {
+      width:97%;}
+      .name-item div label {
+      display:block;
+      padding-bottom:5px;
+	  }
+	  }
+</style>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <img src="logo1.png" width="80%"style="padding-left: 20px"/>
+            </div>
+
+            <ul class="list-unstyled components">
+                <li class="active">
+                    <a href="homepage.php">Home</a>
+                </li>
+				<li class="active">
+                    <a href="project_homepage.php">Project</a>
+                </li>
+                <li>
+                    <a href="abc/index.php">Message</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-align-justify"></i>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item active">
+                                <a class="nav-link" href="#"><h3>CREATE PROJECT</h3></a>
+                            </li>
+                    </ul>
+                        <ul class="nav navbar-nav ml-auto">
+						<li class="nav-item active">
+                                <a class="nav-link" href="profile.php">Profile</a>
+                            </li>
+							<li class="nav-item active">
+                                <a class="nav-link" href="abc/logout.php">Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+      <div class="testbox">
+      <form action="create_project2.php" method="post">
+        <div class="banner">
+          <h1>Add new project</h1>
+        </div>
+		<div class="item">
+            <label for="pid"> Project ID<span>*</span></label>
+            <input id="pid" type="text" name="pid" required />
+          </div>
+          <div class="item">
+            <label for="pname"> Project Name<span>*</span></label>
+            <input id="pname" type="text" name="pname" required />
+          </div>
+          <div class="item">
+            <label for="deadline">Deadline<span>*</span></label>
+            <input id="deadline" type="date" name="deadline" required>
+			</input>
+          </div>
+          <div class="item">
+            <label for="priority">Priority<span>*</span></label>
+            <select id="priority" name="priority" required />
+				<option value="high">High</option>
+				<option value="medium">Medium</option>
+				<option value="low">Low</option>
+			</select>
+          </div>
+          <div class="item">
+            <label for="u_name">Add team members<span>*</span></label>
+            <input id="u_name" type="text"   name="u_name" required/>
+          </div>
+          <div class="item">
+            <label for="leader">Leader<span>*</span></label>
+            <input id="leader" type="text" name="leader" required/>
+          </div>
+		<div class="btn-block">
+          <button type="submit" href="/">Submit</button>
+        </div>
+      </form>
+    </div>
+
+    </div>
+
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+		var app = {
+	settings: {
+		container: $('.calendar'),
+		calendar: $('.front'),
+		days: $('.weeks span'),
+		form: $('.back'),
+		input: $('.back input'),
+		buttons: $('.back button')
+	},
+
+	init: function() {
+		instance = this;
+		settings = this.settings;
+		this.bindUIActions();
+	},
+
+	swap: function(currentSide, desiredSide) {
+		settings.container.toggleClass('flip');
+
+		currentSide.fadeOut(900);
+		currentSide.hide();
+
+		desiredSide.show();
+	},
+
+	bindUIActions: function() {
+		settings.days.on('click', function(){
+			instance.swap(settings.calendar, settings.form);
+			settings.input.focus();
+		});
+
+		settings.buttons.on('click', function(){
+			instance.swap(settings.form, settings.calendar);
+		});
+	}
+}
+    </script>
+</body>
+</html>

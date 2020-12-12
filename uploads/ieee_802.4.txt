@@ -1,0 +1,18 @@
+1. Preamble - It is used for bit synchronization. It is 1 byte field. 
+
+2. Start Delimiter - These bits marks the beginning of frame. It is 1 byte field.
+
+3. Frame Control - This field specifies the type of frame - data frame and control frames. It is 1 byte field. 
+
+4. Destination Address - This field contains the destination address. It is 2 to 6 bytes field contains the source address. It is 2 to 6 bytes field
+	1. Local address: Destination is present on your own network. Then length of destination  		address is 2 bytes long.
+
+	2. Global address: Destination is available outside your network. Then length of destination 	address is 6 bytes long.
+
+5. Source Address - This field contains the destination address. it is 2 to 6 bytes field
+
+6. Data - If 2 byte addresses are used than the field may be upto 8182 bytes and 8174 bytes in case of 6 byte address. 
+
+7. Checksum - This field contains the checksum bits which is used to detect errors in the transmitted data. It is 4 bytes field. 
+
+8. End Delimiter - This field marks the end of frame. It is 1 byte field

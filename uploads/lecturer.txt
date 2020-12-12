@@ -1,0 +1,22 @@
+thank you kemmy, good afternoon sir now i will discuss about lecturer module
+A Lecturer can perform various activities.. here lecturer can give assignment to students, can view assignment and they also assign marks to students , lecturer can also modify the student subject and assign them to different lecturer or class
+
+here is the homepage of lecturer there are 3 section 
+in assessment sesction 
+add assignment 
+1. whenever a lecturer wants to give assignment to class they can simply go to add assessment tab when a lecturer clicks on it a list of modules will show up... now  they can select in which module  they want to  add assignment and select the respective module.. the adding assignment procedure is same a it's is shown in admin side
+
+view assessment
+2. when A lecturer want to view assigments they have given can view the assignment  they have given.... so they  go to view assignments page which shows the assignment name description and the deadline the format is same as admin module
+
+view submitted assessment 
+3. now when the student has submitted the assignment and lecturer has to view it so they goto View submitted assignment page and there the list of files which has been uploaded by students are shown… to view assigment the lecturer will simply type the file name which they want to open
+
+
+4.after viewing assignment the lecturer want to give marks to the student who have submitted assignment.. to do that they go on  view student page here the list of all students is shown''' now they have to click on add marks button to the respective student after that they will be redirected to add marks page to fill in the details of student and  submit the marks 
+
+
+manage modules
+5. if a lecturer wants to modify student or wants to view student marks they go to modules section  and selects the module in which they have to update information.. . here 4 option are available to lecturer the first one is add assessment which helps them to add assessment 2nd option is create marking scheme which allows the lecture to set marking scheme of the particular subject and assessment.. 3rd is assign students to lecturers.. this page helps the lecturer to change student class if a student opt for different course or subject or assign student to specified lecturer.. 4th option is view student marks lecturer can view student marks
+
+now i would like shasuat to continue with faculty module in detail
